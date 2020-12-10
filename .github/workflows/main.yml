@@ -27,8 +27,9 @@ jobs:
         with:
           repository-test-name: 'betrybe/sd-0x-stranger-things-frontend-tests'
           repository-test-branch: 'master'
+          npm-start: true
         env:
-          GITHUB_USER_TEST: ${{ github.actor }}
+          GITHUB_USER_TEST: ${{ github.actor }} 
       - name: Store evaluation step
         uses: betrybe/store-evaluation-action@v2
         with:
