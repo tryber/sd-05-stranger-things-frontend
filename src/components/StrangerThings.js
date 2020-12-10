@@ -4,8 +4,11 @@ import CharactersService from '../services/charactersAPI';
 require('dotenv').config();
 
 // prettier-ignore
-const getRealityClass = (hereIsTheUpsideDownWorld) =>
-  (hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things');
+const getRealityClass = (hereIsTheUpsideDownWorld) => (
+  hereIsTheUpsideDownWorld 
+  ? 'upside-down' 
+  : 'stranger-things'
+);
 
 const strangerThingsConfig = {
   url: process.env.REACT_APP_HAWKINS_URL,
@@ -67,7 +70,10 @@ class StrangerThings extends React.Component {
   searchCharacter(page) {
     const { characterName, hereIsTheUpsideDownWorld } = this.state;
 
-    const service = hereIsTheUpsideDownWorld ? charactersUpsideDownService : charactersService;
+    // prettier-ignore
+    const service = hereIsTheUpsideDownWorld 
+      ? charactersUpsideDownService 
+      : charactersService;
 
     const numberOfPages = 10;
     service
@@ -115,7 +121,7 @@ class StrangerThings extends React.Component {
       page,
     } = this.state;
     return (
-      <div className={ `reality ${ getRealityClass(hereIsTheUpsideDownWorld) }` }>
+      <div className={ `reality ${getRealityClass(hereIsTheUpsideDownWorld)}` }>
         <div className="content strangerfy">
           <div className="change-reality">
             <button type="button" onClick={ this.changeRealityClick }>
