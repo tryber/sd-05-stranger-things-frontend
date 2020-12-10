@@ -111,6 +111,9 @@ class StrangerThings extends React.Component {
             <button type="button"> Env_Mode: {process.env.ENV_MODE}</button>
             <button type="button"> Dev_Mode: {process.env.DEV_MODE}</button> */}
             {process.env.ENV_MODE === 'true' && <h2>Em desenvolvimento</h2>}
+            {process.env.ENV_MODE === 'true' && <h2>Modo: {process.env.ENV_MODE}</h2>}
+            {process.env.ENV_MODE === 'true' && <button type="button">Modo: Em desenvolvimento</button>}
+            {process.env.ENV_MODE === 'true' && <button type="button">Modo: {process.env.ENV_MODE}</button>}
           </div>
           <div className="change-reality">
             <button type="button" onClick={this.changeRealityClick}>
