@@ -5,10 +5,14 @@ const getRealityClass = (hereIsTheUpsideDownWorld) => (
   hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things'
 );
 
+// https://cduessel-bk.herokuapp.com/
+
 const strangerThingsConfig = {
   url: process.env.REACT_APP_HAWKINS_URL,
   timeout: process.env.REACT_APP_HAWKINS_TIMEOUT,
 };
+
+// https://cduessel-bd.herokuapp.com/
 
 const upsideDownConfig = {
   url: process.env.REACT_APP_UPSIDEDOWN_URL,
