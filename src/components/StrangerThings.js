@@ -4,6 +4,7 @@ import CharactersService from '../services/charactersAPI';
 require('dotenv').config();
 
 const getRealityClass = (hereIsTheUpsideDownWorld) => {
+  console.log('slint');
   return hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things';
 };
 
