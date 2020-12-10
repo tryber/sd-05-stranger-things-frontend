@@ -1,9 +1,11 @@
 import React from 'react';
 import CharactersService from '../services/charactersAPI';
+
 require('dotenv').config();
 
+// prettier-ignore
 const getRealityClass = (hereIsTheUpsideDownWorld) =>
-  hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things';
+  (hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things');
 
 const strangerThingsConfig = {
   url: process.env.REACT_APP_HAWKINS_URL,
@@ -102,6 +104,7 @@ class StrangerThings extends React.Component {
     );
   }
 
+  // prettier-ignore
   render() {
     const {
       hereIsTheUpsideDownWorld,
@@ -112,10 +115,10 @@ class StrangerThings extends React.Component {
       page,
     } = this.state;
     return (
-      <div className={`reality ${getRealityClass(hereIsTheUpsideDownWorld)}`}>
+      <div className={ `reality ${ getRealityClass(hereIsTheUpsideDownWorld) }` }>
         <div className="content strangerfy">
           <div className="change-reality">
-            <button type="button" onClick={this.changeRealityClick}>
+            <button type="button" onClick={ this.changeRealityClick }>
               {' '}
               Mudar de Realidade
             </button>
@@ -124,10 +127,10 @@ class StrangerThings extends React.Component {
           <div>
             <input
               placeholder="Nome do Personagem"
-              onChange={this.handleInput}
-              value={characterName}
+              onChange={ this.handleInput }
+              value={ characterName }
             />
-            <button type="button" onClick={this.searchClick}>
+            <button type="button" onClick={ this.searchClick }>
               Pesquisar
             </button>
           </div>
@@ -143,7 +146,7 @@ class StrangerThings extends React.Component {
               </thead>
               <tbody>
                 {characters.map((char) => (
-                  <tr key={char.name}>
+                  <tr key={ char.name }>
                     <td>{char.name}</td>
                     <td>{char.origin}</td>
                     <td>{char.status}</td>
@@ -160,10 +163,10 @@ class StrangerThings extends React.Component {
             </p>
           </div>
           <div>
-            <button type="button" onClick={previousPage}>
+            <button type="button" onClick={ previousPage }>
               Anterior
             </button>
-            <button type="button" onClick={nextPage}>
+            <button type="button" onClick={ nextPage }>
               Próximo
             </button>
           </div>
