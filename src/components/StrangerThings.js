@@ -7,7 +7,7 @@ const getRealityClass = (hereIsTheUpsideDownWorld) => {
   console.log('slint');
   return hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things';
 };
-
+console.log('mudança do teste alterado no heroku');
 const strangerThingsConfig = {
   url: process.env.REACT_APP_HAWKINS_URL,
   timeout: process.env.REACT_APP_HAWKINS_TIMEOUT,
