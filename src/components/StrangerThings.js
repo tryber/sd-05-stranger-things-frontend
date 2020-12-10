@@ -106,7 +106,7 @@ class StrangerThings extends React.Component {
       <div className={`reality ${getRealityClass(hereIsTheUpsideDownWorld)}`}>
         <div className="content strangerfy">
           <div>
-            {DEV_MODE && <h2>Em desenvolvimento</h2>}
+            {process.env.DEV_MODE && <h2>Em desenvolvimento</h2>}
             {/* {process.env.ENV_MODE === 'Em desenvolvimento' && <button type="button">Em desenvolvimento</button>}
             <button type="button"> Env_Mode: {process.env.ENV_MODE}</button>
             <button type="button"> Dev_Mode: {process.env.DEV_MODE}</button> */}
