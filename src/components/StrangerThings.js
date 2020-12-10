@@ -104,11 +104,7 @@ class StrangerThings extends React.Component {
     const { hereIsTheUpsideDownWorld, characterName, characters, page } = this.state;
     return (
       <div className={`reality ${getRealityClass(hereIsTheUpsideDownWorld)}`}>
-        {/* <div>
-          {process.env.DVLPT_OR_PROD_MODE === 'dvlpt' && <p>Em desenvolvimento</p>}
-          {process.env.DVLPT_OR_PROD_MODE === 'prod' && <p>Em produção</p>}
-        </div> */}
-        <h1>{process.env.ENV_MODE}</h1>
+        <button type="button">{process.env.ENV_MODE}</button>
         <div className="content strangerfy">
           <div className="change-reality">
             <button type="button" onClick={this.changeRealityClick}>
