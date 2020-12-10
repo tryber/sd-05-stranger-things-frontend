@@ -63,16 +63,15 @@ class StrangerThings extends React.Component {
     );
   }
 
-  searchCharacter(page) {
-    const { characterName, hereIsTheUpsideDownWorld } = this.state;
-
+  searchCharacter(pages) {
+    const { characterName, hereIsTheUpsideDownWorld, page } = this.state;
     const service = hereIsTheUpsideDownWorld
       ? charactersUpsideDownService
       : charactersService;
 
     const numberOfPages = 10;
     service
-      .getCharacters(characterName, page || page, numberOfPages)
+      .getCharacters(characterName, pages || page, numberOfPages)
       .then(({ data: characters }) => {
         this.setState({
           characters,
@@ -84,7 +83,6 @@ class StrangerThings extends React.Component {
     const { page, characters } = this.state;
 
     if (!characters.length) return;
-
     this.setState(
       {
         page: page + 1,
@@ -107,7 +105,7 @@ class StrangerThings extends React.Component {
 
   render() {
     const {
-      hereIsTheUpsideDownWorld, characterName, characters, previousPage, nextPage, page,
+      hereIsTheUpsideDownWorld, characterName, characters, page,
     } = this.state;
     return (
       <div
@@ -160,8 +158,8 @@ class StrangerThings extends React.Component {
             </p>
           </div>
           <div>
-            <button type="button" onClick={ previousPage }>Anterior</button>
-            <button type="button" onClick={ nextPage }>Próximo</button>
+            <button type="button" onClick={ this.previousPage }>Anterior</button>
+            <button type="button" onClick={ this.nextPage }>Próximo</button>
           </div>
         </div>
       </div>
