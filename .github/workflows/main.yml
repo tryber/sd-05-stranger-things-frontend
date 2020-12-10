@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Evaluator step
         id: evaluator
-        uses: betrybe/cypress-evaluator-action@v7
+        uses: betrybe/cypress-evaluator-action@v5
         with:
           repository-test-name: 'betrybe/sd-0x-stranger-things-frontend-tests'
           repository-test-branch: 'master'
