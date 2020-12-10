@@ -5,9 +5,9 @@ require('dotenv').config();
 
 // prettier-ignore
 const getRealityClass = (hereIsTheUpsideDownWorld) => (
-  hereIsTheUpsideDownWorld 
-  ? 'upside-down' 
-  : 'stranger-things'
+  hereIsTheUpsideDownWorld
+    ? 'upside-down'
+    : 'stranger-things'
 );
 
 const strangerThingsConfig = {
@@ -71,8 +71,8 @@ class StrangerThings extends React.Component {
     const { characterName, hereIsTheUpsideDownWorld } = this.state;
 
     // prettier-ignore
-    const service = hereIsTheUpsideDownWorld 
-      ? charactersUpsideDownService 
+    const service = hereIsTheUpsideDownWorld
+      ? charactersUpsideDownService
       : charactersService;
 
     const numberOfPages = 10;
