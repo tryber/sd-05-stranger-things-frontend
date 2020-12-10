@@ -2,9 +2,10 @@ import React from 'react';
 import CharactersService from '../services/charactersAPI';
 // require('dotenv').config(); do not need it here
 
-const getRealityClass = (hereIsTheUpsideDownWorld) => {
-  return hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things';
-};
+const getRealityClass = (hereIsTheUpsideDownWorld) => 
+  hereIsTheUpsideDownWorld
+  ? 'upside-down'
+  : 'stranger-things';
 
 const strangerThingsConfig = {
   url: process.env.REACT_APP_HAWKINS_URL,
@@ -99,7 +100,7 @@ class StrangerThings extends React.Component {
       {
         page: page - 1,
       },
-      () => this.searchCharacter()
+      () => this.searchCharacter(),
     );
   }
 
