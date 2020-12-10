@@ -1,10 +1,9 @@
 import React from 'react';
 import CharactersService from '../services/charactersAPI';
-require('dotenv').config()
+require('dotenv').config();
 
-const getRealityClass = (hereIsTheUpsideDownWorld) => (
-  hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things'
-);
+const getRealityClass = (hereIsTheUpsideDownWorld) =>
+  hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things';
 
 const strangerThingsConfig = {
   url: process.env.REACT_APP_HAWKINS_URL,
@@ -59,15 +58,13 @@ class StrangerThings extends React.Component {
       {
         page: 1,
       },
-      this.searchCharacter(1),
+      this.searchCharacter(1)
     );
   }
 
   searchCharacter(pages) {
     const { characterName, hereIsTheUpsideDownWorld, page } = this.state;
-    const service = hereIsTheUpsideDownWorld
-      ? charactersUpsideDownService
-      : charactersService;
+    const service = hereIsTheUpsideDownWorld ? charactersUpsideDownService : charactersService;
 
     const numberOfPages = 10;
     service
@@ -87,7 +84,7 @@ class StrangerThings extends React.Component {
       {
         page: page + 1,
       },
-      () => this.searchCharacter(),
+      () => this.searchCharacter()
     );
   }
 
@@ -99,23 +96,21 @@ class StrangerThings extends React.Component {
       {
         page: page - 1,
       },
-      () => this.searchCharacter(),
+      () => this.searchCharacter()
     );
   }
 
   render() {
-    const {
-      hereIsTheUpsideDownWorld, characterName, characters, page,
-    } = this.state;
+    const { hereIsTheUpsideDownWorld, characterName, characters, page } = this.state;
     return (
-      <div
-        className={ `reality ${getRealityClass(
-          hereIsTheUpsideDownWorld,
-        )}` }
-      >
+      <div className={`reality ${getRealityClass(hereIsTheUpsideDownWorld)}`}>
+        <div>
+          {process.env.DVLPT_OR_PROD_MODE === 'dvlpt' && <p>Em desenvolvimento</p>}
+          {process.env.DVLPT_OR_PROD_MODE === 'prod' && <p>Em produção</p>}
+        </div>
         <div className="content strangerfy">
           <div className="change-reality">
-            <button type="button" onClick={ this.changeRealityClick }>
+            <button type="button" onClick={this.changeRealityClick}>
               {' '}
               Mudar de Realidade
             </button>
@@ -124,10 +119,12 @@ class StrangerThings extends React.Component {
           <div>
             <input
               placeholder="Nome do Personagem"
-              onChange={ this.handleInput }
-              value={ characterName }
+              onChange={this.handleInput}
+              value={characterName}
             />
-            <button type="button" onClick={ this.searchClick }>Pesquisar</button>
+            <button type="button" onClick={this.searchClick}>
+              Pesquisar
+            </button>
           </div>
 
           <div>
@@ -141,7 +138,7 @@ class StrangerThings extends React.Component {
               </thead>
               <tbody>
                 {characters.map((char) => (
-                  <tr key={ char.name }>
+                  <tr key={char.name}>
                     <td>{char.name}</td>
                     <td>{char.origin}</td>
                     <td>{char.status}</td>
@@ -158,8 +155,12 @@ class StrangerThings extends React.Component {
             </p>
           </div>
           <div>
-            <button type="button" onClick={ this.previousPage }>Anterior</button>
-            <button type="button" onClick={ this.nextPage }>Próximo</button>
+            <button type="button" onClick={this.previousPage}>
+              Anterior
+            </button>
+            <button type="button" onClick={this.nextPage}>
+              Próximo
+            </button>
           </div>
         </div>
       </div>
