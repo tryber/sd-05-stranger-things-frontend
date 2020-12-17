@@ -121,7 +121,7 @@ class StrangerThings extends React.Component {
               Mudar de Realidade
             </button>
           </div>
-          <div><h1>{ process.env.REACT_APP_DEVELOPMENT }</h1></div>
+          {/* <div><h1>{ process.env.REACT_APP_DEVELOPMENT }</h1></div> */}
           <div>
             <input
               placeholder="Nome do Personagem"
