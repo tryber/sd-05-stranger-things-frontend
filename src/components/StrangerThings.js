@@ -23,7 +23,7 @@ class StrangerThings extends React.Component {
     super(props);
 
     this.state = {
-      hereIsTheUpsideDownWorld: false,
+      hereIsTheUpsideDownWorld: false
       characterName: '',
       characters: [],
       page: 1,
