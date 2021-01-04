@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const DEFAULT_TIMEOUT = 30000;
-const PORT = process.env.PORT || 3000;
+const { PORT } = process.env;
 class CharactersService {
   constructor({ url = `http://localhost:${PORT}`, timeout = DEFAULT_TIMEOUT }) {
     this.http = axios.create({
