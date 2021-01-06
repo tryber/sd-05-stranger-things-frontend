@@ -6,13 +6,13 @@ const getRealityClass = (hereIsTheUpsideDownWorld) => (
 );
 
 const strangerThingsConfig = {
-  url: process.env.REACT_APP_HAWKINS_URL,
-  timeout: process.env.REACT_APP_HAWKINS_TIMEOUT,
+  url: REACT_APP_HAWKINS_URL,
+  timeout: REACT_APP_HAWKINS_TIMEOUT,
 };
 
 const upsideDownConfig = {
-  url: process.env.REACT_APP_UPSIDEDOWN_URL,
-  timeout: process.env.REACT_APP_UPSIDEDOWN_TIMEOUT,
+  url: REACT_APP_UPSIDEDOWN_URL,
+  timeout:sREACT_APP_UPSIDEDOWN_TIMEOUT,
 };
 
 const charactersService = new CharactersService(strangerThingsConfig);
@@ -62,16 +62,15 @@ class StrangerThings extends React.Component {
     );
   }
 
-  searchCharacter(page) {
-    const { characterName, hereIsTheUpsideDownWorld } = this.state;
-
+  searchCharacter(pages) {
+    const { characterName, hereIsTheUpsideDownWorld, page } = this.state;
     const service = hereIsTheUpsideDownWorld
       ? charactersUpsideDownService
       : charactersService;
 
     const numberOfPages = 10;
     service
-      .getCharacters(characterName, page || page, numberOfPages)
+      .getCharacters(characterName, pages || page, numberOfPages)
       .then(({ data: characters }) => {
         this.setState({
           characters,
@@ -83,7 +82,6 @@ class StrangerThings extends React.Component {
     const { page, characters } = this.state;
 
     if (!characters.length) return;
-
     this.setState(
       {
         page: page + 1,
@@ -106,7 +104,7 @@ class StrangerThings extends React.Component {
 
   render() {
     const {
-      hereIsTheUpsideDownWorld, characterName, characters, previousPage, nextPage, page,
+      hereIsTheUpsideDownWorld, characterName, characters, page,
     } = this.state;
     return (
       <div
