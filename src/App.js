@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 
-// teste
+// teste 2
 import StrangerThings from './components/StrangerThings';
 
 function App() {
