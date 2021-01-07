@@ -12,10 +12,14 @@ const strangerThingsConfig = {
   timeout: process.env.REACT_APP_HAWKINS_TIMEOUT,
 };
 
+// console.log(strangerThingsConfig.url);
+
 const upsideDownConfig = {
   url: process.env.REACT_APP_UPSIDEDOWN_URL,
   timeout: process.env.REACT_APP_UPSIDEDOWN_TIMEOUT,
 };
+
+// console.log(upsideDownConfig.url);
 
 const charactersService = new CharactersService(strangerThingsConfig);
 const charactersUpsideDownService = new CharactersService(upsideDownConfig);
