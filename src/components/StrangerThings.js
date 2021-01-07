@@ -1,9 +1,9 @@
 import React from 'react';
 import CharactersService from '../services/charactersAPI';
+// teste
 
-const getRealityClass = (hereIsTheUpsideDownWorld) => (
-  hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things'
-);
+const getRealityClass = (hereIsTheUpsideDownWorld) => (hereIsTheUpsideDownWorld
+  ? 'upside-down' : 'stranger-things');
 
 const strangerThingsConfig = {
   url: process.env.REACT_APP_HAWKINS_URL,
