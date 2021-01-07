@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 
+// teste
 import StrangerThings from './components/StrangerThings';
 
 function App() {
