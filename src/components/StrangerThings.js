@@ -113,7 +113,7 @@ class StrangerThings extends React.Component {
         )}` }
       >
         <div className="content strangerfy">
-          {(process.env.AMBIENTE === 'homolog') && (<div><p>Em desenvolvimento</p></div>)}
+          {(process.env.AMBIENTE === 'homolog') ? (<div>Em desenvolvimento</div>) : null}
           <div className="change-reality">
             <button type="button" onClick={ this.changeRealityClick }>
               {' '}
