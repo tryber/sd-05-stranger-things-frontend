@@ -1,26 +1,20 @@
 import React from 'react';
 import CharactersService from '../services/charactersAPI';
 
-const {
-  REACT_APP_HAWKINS_URL,
-  REACT_APP_HAWKINS_TIMEOUT,
-  REACT_APP_UPSIDEDOWN_URL,
-  REACT_APP_UPSIDEDOWN_TIMEOUT,
-  REACT_APP_AMBIENTE,
-} = process.env;
-console.log(REACT_APP_HAWKINS_URL, REACT_APP_AMBIENTE);
+const AMBIENTE = process.env.REACT_APP_AMBIENTE;
+
 const getRealityClass = (hereIsTheUpsideDownWorld) => (
   hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things'
 );
 
 const strangerThingsConfig = {
-  url: REACT_APP_HAWKINS_URL,
-  timeout: REACT_APP_HAWKINS_TIMEOUT,
+  url: process.env.REACT_APP_HAWKINS_URL,
+  timeout: process.env.REACT_APP_HAWKINS_TIMEOUT,
 };
 
 const upsideDownConfig = {
-  url: REACT_APP_UPSIDEDOWN_URL,
-  timeout: REACT_APP_UPSIDEDOWN_TIMEOUT,
+  url: process.env.REACT_APP_UPSIDEDOWN_URL,
+  timeout: process.env.REACT_APP_UPSIDEDOWN_TIMEOUT,
 };
 
 const charactersService = new CharactersService(strangerThingsConfig);
@@ -121,7 +115,7 @@ class StrangerThings extends React.Component {
         )}` }
       >
         <div className="content strangerfy">
-          {(REACT_APP_AMBIENTE === 'homolog') && (<div><p>Em desenvolvimento</p></div>)}
+          {(AMBIENTE === 'homolog') && (<div><p>Em desenvolvimento</p></div>)}
           <div className="change-reality">
             <button type="button" onClick={ this.changeRealityClick }>
               {' '}
