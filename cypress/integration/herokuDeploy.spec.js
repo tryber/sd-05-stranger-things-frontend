@@ -8,7 +8,7 @@ const Claudia = "Claudia"
 
 describe("Verifica se foi feito o deploy do frontend no Heroku", () => {
   beforeEach(() => {
-    cy.visit('https://mausdj-ft.herokuapp.com/');
+    cy.visit(FRONT_URL);
   });
   it("Será validado que o botão de mudar de realidade existe", () => {
     cy.get(".change-reality").should("exist");
