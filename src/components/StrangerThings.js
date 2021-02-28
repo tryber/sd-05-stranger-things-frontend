@@ -9,17 +9,16 @@ const {
   REACT_APP_AMBIENTE,
 } = process.env;
 console.log(REACT_APP_HAWKINS_URL, REACT_APP_AMBIENTE);
-
 const getRealityClass = (hereIsTheUpsideDownWorld) =>
   hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things';
 
 const strangerThingsConfig = {
-  url: 'REACT_APP_HAWKINS_URL',
+  url: REACT_APP_HAWKINS_URL,
   timeout: REACT_APP_HAWKINS_TIMEOUT,
 };
 
 const upsideDownConfig = {
-  url: 'REACT_APP_UPSIDEDOWN_URL',
+  url: REACT_APP_UPSIDEDOWN_URL,
   timeout: REACT_APP_UPSIDEDOWN_TIMEOUT,
 };
 
@@ -111,16 +110,16 @@ class StrangerThings extends React.Component {
   render() {
     const { hereIsTheUpsideDownWorld, characterName, characters, page } = this.state;
     return (
-      <div className={`reality ${getRealityClass(hereIsTheUpsideDownWorld)}`}>
+      <div className={ `reality ${ getRealityClass(hereIsTheUpsideDownWorld) }` }>
         <div className="content strangerfy">
-          {REACT_APP_AMBIENTE === 'homolog' && (
+          { REACT_APP_AMBIENTE === 'homolog' && (
             <div>
               <p>Em desenvolvimento</p>
             </div>
-          )}
+          ) }
           <div className="change-reality">
-            <button type="button" onClick={this.changeRealityClick}>
-              {' '}
+            <button type="button" onClick={ this.changeRealityClick }>
+              { ' ' }
               Mudar de Realidade
             </button>
           </div>
@@ -128,10 +127,10 @@ class StrangerThings extends React.Component {
           <div>
             <input
               placeholder="Nome do Personagem"
-              onChange={this.handleInput}
-              value={characterName}
+              onChange={ this.handleInput }
+              value={ characterName }
             />
-            <button type="button" onClick={this.searchClick}>
+            <button type="button" onClick={ this.searchClick }>
               Pesquisar
             </button>
           </div>
@@ -146,13 +145,13 @@ class StrangerThings extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                {characters.map((char) => (
-                  <tr key={char.name}>
-                    <td>{char.name}</td>
-                    <td>{char.origin}</td>
-                    <td>{char.status}</td>
+                { characters.map((char) => (
+                  <tr key={ char.name }>
+                    <td>{ char.name }</td>
+                    <td>{ char.origin }</td>
+                    <td>{ char.status }</td>
                   </tr>
-                ))}
+                )) }
               </tbody>
             </table>
           </div>
@@ -160,14 +159,14 @@ class StrangerThings extends React.Component {
           <div>
             <p>
               Página atual:
-              {page}
+              { page }
             </p>
           </div>
           <div>
-            <button type="button" onClick={this.previousPage}>
+            <button type="button" onClick={ this.previousPage }>
               Anterior
             </button>
-            <button type="button" onClick={this.nextPage}>
+            <button type="button" onClick={ this.nextPage }>
               Próximo
             </button>
           </div>
