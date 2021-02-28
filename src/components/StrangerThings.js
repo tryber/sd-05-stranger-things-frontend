@@ -9,8 +9,7 @@ const {
   REACT_APP_AMBIENTE,
 } = process.env;
 console.log(REACT_APP_HAWKINS_URL, REACT_APP_AMBIENTE);
-const getRealityClass = (hereIsTheUpsideDownWorld) =>
-  hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things';
+const getRealityClass = (hereIsTheUpsideDownWorld) => hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things';
 
 const strangerThingsConfig = {
   url: REACT_APP_HAWKINS_URL,
@@ -65,13 +64,14 @@ class StrangerThings extends React.Component {
       {
         page: 1,
       },
-      this.searchCharacter(1)
+      this.searchCharacter(1),
     );
   }
 
   searchCharacter(pages) {
     const { characterName, hereIsTheUpsideDownWorld, page } = this.state;
-    const service = hereIsTheUpsideDownWorld ? charactersUpsideDownService : charactersService;
+    const service = hereIsTheUpsideDownWorld ?
+      charactersUpsideDownService : charactersService;
 
     const numberOfPages = 10;
     service
@@ -91,7 +91,7 @@ class StrangerThings extends React.Component {
       {
         page: page + 1,
       },
-      () => this.searchCharacter()
+      () => this.searchCharacter(),
     );
   }
 
@@ -103,14 +103,14 @@ class StrangerThings extends React.Component {
       {
         page: page - 1,
       },
-      () => this.searchCharacter()
+      () => this.searchCharacter(),
     );
   }
 
   render() {
     const { hereIsTheUpsideDownWorld, characterName, characters, page } = this.state;
     return (
-      <div className={ `reality ${ getRealityClass(hereIsTheUpsideDownWorld) }` }>
+      <div className={ `reality ${getRealityClass(hereIsTheUpsideDownWorld)}` }>
         <div className="content strangerfy">
           { REACT_APP_AMBIENTE === 'homolog' && (
             <div>
