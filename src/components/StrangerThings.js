@@ -1,27 +1,23 @@
 import React from 'react';
 import CharactersService from '../services/charactersAPI';
 
-const {
-  REACT_APP_HAWKINS_URL,
-  REACT_APP_HAWKINS_TIMEOUT,
-  REACT_APP_UPSIDEDOWN_URL,
-  REACT_APP_UPSIDEDOWN_TIMEOUT,
-  REACT_APP_AMBIENTE,
-} = process.env;
-console.log(REACT_APP_HAWKINS_URL, REACT_APP_AMBIENTE);
-const getRealityClass = (hereIsTheUpsideDownWorld) => hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things';
+require('dotenv').config();
+
+const getRealityClass = (hereIsTheUpsideDownWorld) =>
+  hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things';
 
 const strangerThingsConfig = {
-  url: REACT_APP_HAWKINS_URL,
-  timeout: REACT_APP_HAWKINS_TIMEOUT,
+  url: process.env.REACT_APP_HAWKINS_URL || 'http://localhost:3002',
+  timeout: process.env.REACT_APP_HAWKINS_TIMEOUT,
 };
 
 const upsideDownConfig = {
-  url: REACT_APP_UPSIDEDOWN_URL,
-  timeout: REACT_APP_UPSIDEDOWN_TIMEOUT,
+  url: process.env.REACT_APP_UPSIDEDOWN_URL || 'http://localhost:3003',
+  timeout: process.env.REACT_APP_UPSIDEDOWN_TIMEOUT,
 };
 
 const charactersService = new CharactersService(strangerThingsConfig);
+
 const charactersUpsideDownService = new CharactersService(upsideDownConfig);
 
 class StrangerThings extends React.Component {
@@ -64,14 +60,13 @@ class StrangerThings extends React.Component {
       {
         page: 1,
       },
-      this.searchCharacter(1),
+      this.searchCharacter(1)
     );
   }
 
   searchCharacter(pages) {
     const { characterName, hereIsTheUpsideDownWorld, page } = this.state;
-    const service = hereIsTheUpsideDownWorld ?
-      charactersUpsideDownService : charactersService;
+    const service = hereIsTheUpsideDownWorld ? charactersUpsideDownService : charactersService;
 
     const numberOfPages = 10;
     service
@@ -91,7 +86,7 @@ class StrangerThings extends React.Component {
       {
         page: page + 1,
       },
-      () => this.searchCharacter(),
+      () => this.searchCharacter()
     );
   }
 
@@ -103,23 +98,18 @@ class StrangerThings extends React.Component {
       {
         page: page - 1,
       },
-      () => this.searchCharacter(),
+      () => this.searchCharacter()
     );
   }
 
   render() {
     const { hereIsTheUpsideDownWorld, characterName, characters, page } = this.state;
     return (
-      <div className={ `reality ${getRealityClass(hereIsTheUpsideDownWorld)}` }>
+      <div className={`reality ${getRealityClass(hereIsTheUpsideDownWorld)}`}>
         <div className="content strangerfy">
-          { REACT_APP_AMBIENTE === 'homolog' && (
-            <div>
-              <p>Em desenvolvimento</p>
-            </div>
-          ) }
           <div className="change-reality">
-            <button type="button" onClick={ this.changeRealityClick }>
-              { ' ' }
+            <button type="button" onClick={this.changeRealityClick}>
+              {' '}
               Mudar de Realidade
             </button>
           </div>
@@ -127,10 +117,10 @@ class StrangerThings extends React.Component {
           <div>
             <input
               placeholder="Nome do Personagem"
-              onChange={ this.handleInput }
-              value={ characterName }
+              onChange={this.handleInput}
+              value={characterName}
             />
-            <button type="button" onClick={ this.searchClick }>
+            <button type="button" onClick={this.searchClick}>
               Pesquisar
             </button>
           </div>
@@ -145,13 +135,13 @@ class StrangerThings extends React.Component {
                 </tr>
               </thead>
               <tbody>
-                { characters.map((char) => (
-                  <tr key={ char.name }>
+                {characters.map((char) => (
+                  <tr key={char.name}>
                     <td>{ char.name }</td>
                     <td>{ char.origin }</td>
                     <td>{ char.status }</td>
                   </tr>
-                )) }
+                ))}
               </tbody>
             </table>
           </div>
