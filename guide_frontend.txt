@@ -1,0 +1,72 @@
+ANOTAÇÕES
+______________________________________
+
+Requisito 8) Altere o frontend para utilizar variáveis de ambiente para controlar as URLs e Timeouts de comunicação com a API.
+
+Perceba que o código está esperando por duas APIs. Uma para o modo upside-down e a outra para o modo normal.
+
+O nome das variáveis deve ser o seguinte:
+- REACT_APP_HAWKINS_URL e REACT_APP_HAWKINS_TIMEOUT para a URL e o TIMEOUT do seu backend hawkins.
+- REACT_APP_UPSIDEDOWN_URL e REACT_APP_UPSIDEDOWN_TIMEOUT para a URL e o TIMEOUT do seu backend UPSIDEDOWN.
+
+Vai ficar assim:
+
+REACT_APP_HAWKINS_URL=https://marinabrcls-bk.herokuapp.com/
+REACT_APP_HAWKINS_TIMEOUT=30000
+REACT_APP_UPSIDEDOWN_URL=https://marinabrcls-bd.herokuapp.com/
+REACT_APP_UPSIDEDOWN_TIMEOUT=30000
+GITHUB_USER=marinabrcls
+______________________________________
+
+Requisito 9) Deploy do frontend no Heroku.
+
+- Assim como no backend, será necessária a variável de ambiente GITHUB_USER. (citado acima)
+- Crie um app do Heroku com o front-end. Não é necessário a criação do Procfile aqui. Vamos deixar o Heroku utilizar as configurações padrões.
+- No momento de criar o app do Heroku, utilize o buildpack mars/create-react-app.
+- Lembre-se de que é possível testar o comportamento definindo as variáveis de ambiente em sua máquina. Você pode fazê-las apontar tanto para o backend rodando localmente em sua máquina, quanto para as APIs já publicadas nos requisitos anteriores.
+- O nome do seu app no heroku deve ser seu nome de usuário do github seguido de "-ft".
+- Configure as variáveis de ambiente do app para apontar para as API's publicadas.
+- Faça o deploy com o git.
+
+Passo a passo:
+
+*1. Criei o app do Heroku utilizando buildpack mars.
+
+    Comando:
+    heroku create marinabrcls-ft --buildpack mars/create-react-app
+
+*2. Alterei o arquivo src/components/StrangerThings.js para processar as variáveis de ambiente (criadas no requisito 8)
+    
+    Exemplo:
+    process.env.NOME_DA_VARIAVEL
+
+*3. Subi essas alterações para o Heroku seguindo os mesmos passos do back-end:
+    git add [arquivo] + git commit [mensagem]
+    e na hora de fazer o push, enviar antes para o Heroku, utilizando o seguinte
+    
+    Comando:
+    git push heroku marinabrcls-stranger-things-frontend:master
+
+*4. Fiz o outro push normalmente para subir para o repositório do avaliador da Trybe
+______________________________________
+
+Requisito 10) Utilize a estratégia de multi-ambientes no frontend - Development Mode.
+
+- Renomeie o remote atual para "development".
+- Faça o deploy do novo ambiente, conforme requisito 9.
+- O nome do seu novo app no heroku deve ser seu nome de usuário do github seguido de "-pd".
+- Adicione um item ao frontend que identifique o layout como rodando em modo de "desenvolvimento". Esse tag item deve conter o o texto "Em desenvolvimento"
+- Lembre-se de criar uma variável de ambiente para controlar esse comportamento, e configurá-la nos apps publicados.
+
+_______________________________________________
+
+DICAS DA NAT
+
+No front end criando o app usando o buildpack mars (sugestão do readme) - fazer o deploy da aplicação em react
+
+heroku create marinabrcls-ft --buildpack mars/create-react-app
+
+Para renomear a aplicação (requisito 9)
+git remote rename marinabrcls-ft development
+
+Faz o git add ., commit e push igual ao item 3
