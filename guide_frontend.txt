@@ -53,20 +53,16 @@ ______________________________________
 Requisito 10) Utilize a estratégia de multi-ambientes no frontend - Development Mode.
 
 - Renomeie o remote atual para "development".
-- Faça o deploy do novo ambiente, conforme requisito 9.
+- Faça o deploy d.o novo ambiente, conforme requisito 9
 - O nome do seu novo app no heroku deve ser seu nome de usuário do github seguido de "-pd".
 - Adicione um item ao frontend que identifique o layout como rodando em modo de "desenvolvimento". Esse tag item deve conter o o texto "Em desenvolvimento"
 - Lembre-se de criar uma variável de ambiente para controlar esse comportamento, e configurá-la nos apps publicados.
 
-_______________________________________________
+* Para renomear a aplicação, segui os passos dessa documentação:
+    https://devcenter.heroku.com/articles/renaming-apps
+ 
+    Comandos:
 
-DICAS DA NAT
-
-No front end criando o app usando o buildpack mars (sugestão do readme) - fazer o deploy da aplicação em react
-
-heroku create marinabrcls-ft --buildpack mars/create-react-app
-
-Para renomear a aplicação (requisito 9)
-git remote rename marinabrcls-ft development
-
-Faz o git add ., commit e push igual ao item 3
+    heroku apps:rename marinabrcls-pd
+    git remote rm heroku
+    heroku git:remote -a marinabrcls-pd
