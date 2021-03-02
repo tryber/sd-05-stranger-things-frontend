@@ -8,13 +8,13 @@ const getRealityClass = (hereIsTheUpsideDownWorld) => (
 );
 
 const strangerThingsConfig = {
-  url: 'REACT_APP_HAWKINS_URL',
-  timeout: REACT_APP_HAWKINS_TIMEOUT,
+  url: process.env.REACT_APP_HAWKINS_URL,
+  timeout: process.env.REACT_APP_HAWKINS_TIMEOUT,
 };
 
 const upsideDownConfig = {
-  url: 'REACT_APP_UPSIDEDOWN_URL',
-  timeout: REACT_APP_UPSIDEDOWN_TIMEOUT,
+  url: process.env.REACT_APP_UPSIDEDOWN_URL,
+  timeout: process.env.REACT_APP_UPSIDEDOWN_TIMEOUT,
 };
 
 const charactersService = new CharactersService(strangerThingsConfig);
@@ -153,6 +153,7 @@ class StrangerThings extends React.Component {
           </div>
 
           <div>
+            <p>Em desenvolvimento</p>
             <p>
               Página atual:
               {page}
