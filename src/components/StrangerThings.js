@@ -115,9 +115,6 @@ class StrangerThings extends React.Component {
           hereIsTheUpsideDownWorld,
         )}` }
       >
-        <div>
-          <p>Em desenvolvimento</p>
-        </div>
         <div className="content strangerfy">
           <div className="change-reality">
             <button type="button" onClick={ this.changeRealityClick }>
@@ -125,6 +122,9 @@ class StrangerThings extends React.Component {
               Mudar de Realidade
             </button>
           </div>
+        <div>
+          <p>Em desenvolvimento</p>
+        </div>
 
           <div>
             <input
