@@ -114,7 +114,7 @@ class StrangerThings extends React.Component {
           hereIsTheUpsideDownWorld,
         )}` }
       >
-        {(process.env.ENVIRONMENT === 'development') && (<div>Em desenvolvimento</div>)}
+        <div>Em desenvolvimento</div>
 
         <div className="content strangerfy">
           <div className="change-reality">
