@@ -114,11 +114,8 @@ class StrangerThings extends React.Component {
           hereIsTheUpsideDownWorld,
         )}` }
       >
-        {/* (process.env.ENVIRONMENT === 'development') && (<div>Em desenvolvimento</div>) */}
-
         <div className="content strangerfy">
           <div>Em desenvolvimento</div>
-          
           <div className="change-reality">
             <button type="button" onClick={ this.changeRealityClick }>
               {' '}
