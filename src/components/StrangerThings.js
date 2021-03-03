@@ -1,8 +1,6 @@
 import React from 'react';
 import CharactersService from '../services/charactersAPI';
 
-// force Cypress reevaluation
-
 require('dotenv').config();
 
 const getRealityClass = (hereIsTheUpsideDownWorld) => (
@@ -116,9 +114,11 @@ class StrangerThings extends React.Component {
           hereIsTheUpsideDownWorld,
         )}` }
       >
-        {(process.env.ENVIRONMENT === 'development') && (<div>Em desenvolvimento</div>)}
+        {/* (process.env.ENVIRONMENT === 'development') && (<div>Em desenvolvimento</div>) */}
 
         <div className="content strangerfy">
+          <div>Em desenvolvimento</div>
+          
           <div className="change-reality">
             <button type="button" onClick={ this.changeRealityClick }>
               {' '}
