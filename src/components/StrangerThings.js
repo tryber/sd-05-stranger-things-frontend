@@ -2,7 +2,7 @@ import React from 'react';
 import CharactersService from '../services/charactersAPI';
 
 require('dotenv').config();
-//comentario para o avaliador rodar
+// comentario para o avaliador rodar
 
 const getRealityClass = (hereIsTheUpsideDownWorld) => (
   hereIsTheUpsideDownWorld ? 'upside-down' : 'stranger-things'
