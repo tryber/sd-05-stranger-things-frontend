@@ -122,10 +122,9 @@ class StrangerThings extends React.Component {
               Mudar de Realidade
             </button>
           </div>
-          {/* workflow do avaliador parou */}
-          <div>
+          {/* <div>
             <p>Em desenvolvimento</p>
-          </div>
+          </div> */}
 
           <div>
             <input
