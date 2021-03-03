@@ -114,7 +114,7 @@ class StrangerThings extends React.Component {
         className={ `reality ${getRealityClass(
           hereIsTheUpsideDownWorld,
         )}` }
-        >
+      >
         <div>
           <p>Em desenvolvimento</p>
         </div>
